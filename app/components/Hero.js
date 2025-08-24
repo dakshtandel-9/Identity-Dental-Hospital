@@ -49,9 +49,9 @@ function AwardIcon({ className = "h-5 w-5" }) {
 const CONFIG = {
     clinicName: "Identity Dental Hospital",
     slides: [
-        { mobile: "/image2.webp", desktop: "/image1.webp", alt: "Clinic slide 1" },
-        { mobile: "/image2.webp", desktop: "/image1.webp", alt: "Clinic slide 1" },
-        { mobile: "/image2.webp", desktop: "/image1.webp", alt: "Clinic slide 1" },
+        { mobile: "/image2.png", desktop: "/image.png", alt: "Clinic slide 1" },
+        { mobile: "/image2.png", desktop: "/image.png", alt: "Clinic slide 1" },
+        { mobile: "/image2.png", desktop: "/image.png", alt: "Clinic slide 1" },
     ],
     autoplayMs: 6000,         // hero slider autoplay (0 to disable)
     statsAutoplayMs: 2500,    // mobile stats auto-scroll interval

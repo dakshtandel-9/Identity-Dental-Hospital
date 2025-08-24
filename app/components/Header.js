@@ -147,7 +147,7 @@ export default function Header() {
                 {/* Brand: logo only */}
                 <a href="#top" className="flex items-center" aria-label="Go to top">
                     <Image
-                        src="/logo.svg"
+                        src="/logo1.svg"
                         alt={CONFIG.clinicName}
                         width={36}
                         height={36}
