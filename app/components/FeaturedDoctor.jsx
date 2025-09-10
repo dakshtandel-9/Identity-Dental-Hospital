@@ -10,7 +10,7 @@ export default function FeaturedDoctor() {
                     <div className="lg:col-span-5">
                         <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-2xl transform lg:rotate-3 hover:rotate-0 transition-transform duration-500 ease-in-out">
                             <Image
-                                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d"
+                                src="/DocImage/MadhusudhanReddy.jpeg"
                                 alt="Dr. N. Madhusudhan Reddy"
                                 fill
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"

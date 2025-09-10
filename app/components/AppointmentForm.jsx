@@ -16,10 +16,15 @@ export default function AppointmentForm() {
     }
 
     return (
-        <section id="appointment" className="py-16 bg-white">
+        <section id="appointment" className="py-20 bg-gradient-to-br from-blue-50 to-white">
             <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-                <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center">Book an Appointment</h2>
-                <form onSubmit={onSubmit} className="mt-8 rounded-2xl bg-slate-50 p-6 ring-1 ring-slate-200">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Book an Appointment</h2>
+                    <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                        Schedule your visit with our experienced dental professionals. We're here to help you achieve your best smile.
+                    </p>
+                </div>
+                <form onSubmit={onSubmit} className="bg-white rounded-2xl shadow-xl p-8 ring-1 ring-gray-200">
                     <div className="grid gap-4 sm:grid-cols-2">
                         <div>
                             <label className="lbl">Full Name</label>
@@ -49,8 +54,8 @@ export default function AppointmentForm() {
                             <textarea name="message" rows={3} className="inp" placeholder="Any symptoms or requests?" />
                         </div>
                         <div className="sm:col-span-2 flex items-center gap-2">
-                            <input type="checkbox" required className="h-4 w-4" />
-                            <span className="text-xs text-slate-600">I agree to be contacted via phone/WhatsApp.</span>
+                            <input type="checkbox" required className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
+                            <span className="text-sm text-gray-600">I agree to be contacted via phone/WhatsApp for appointment confirmation.</span>
                         </div>
                     </div>
 
@@ -63,9 +68,11 @@ export default function AppointmentForm() {
                     </div>
 
                     {ok && (
-                        <p className="mt-4 text-sm text-teal-700">
-                            Thank you! The clinic will contact soon to confirm your slot.
-                        </p>
+                        <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                            <p className="text-sm text-green-800 font-medium">
+                                ✓ Thank you! We've received your appointment request. Our team will contact you soon to confirm your slot.
+                            </p>
+                        </div>
                     )}
                 </form>
             </div>

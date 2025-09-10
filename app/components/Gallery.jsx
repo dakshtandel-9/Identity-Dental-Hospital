@@ -1,15 +1,22 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 
 const GALLERY_IMAGES = [
-  { src: "/clinic-1.jpg", alt: "Modern dental clinic reception area", label: "Reception Area" },
-  { src: "/clinic-2.jpg", alt: "State-of-the-art dental treatment room", label: "Treatment Room" },
-  { src: "/clinic-3.jpg", alt: "Advanced dental equipment", label: "Our Technology" },
-  { src: "/smile-1.jpg", alt: "Patient with a bright, healthy smile", label: "Smile Makeover" },
-  { src: "/smile-2.jpg", alt: "Close-up of a successful dental implant", label: "Dental Implants" },
-  { src: "/smile-3.jpg", alt: "Patient after a cosmetic dentistry procedure", label: "Cosmetic Dentistry" },
+  { src: "/GalImages/01.jpg", alt: "Modern dental clinic interior", label: "Clinic Interior" },
+  { src: "/GalImages/02.jpg", alt: "State-of-the-art dental equipment", label: "Advanced Equipment" },
+  { src: "/GalImages/03.jpg", alt: "Professional dental treatment room", label: "Treatment Room" },
+  { src: "/GalImages/04.jpg", alt: "Dental consultation area", label: "Consultation Area" },
+  { src: "/GalImages/05.jpg", alt: "Modern dental facility", label: "Our Facility" },
+  { src: "/GalImages/06.jpg", alt: "Dental care environment", label: "Care Environment" },
+  { src: "/GalImages/07.jpg", alt: "Professional dental workspace", label: "Workspace" },
+  { src: "/GalImages/08.jpg", alt: "Dental clinic atmosphere", label: "Clinic Atmosphere" },
 ];
 
 export default function Gallery() {
+  const [showAll, setShowAll] = useState(false);
+  const displayedImages = showAll ? GALLERY_IMAGES : GALLERY_IMAGES.slice(0, 6);
+
   return (
     <section id="gallery" className="py-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -22,21 +29,38 @@ export default function Gallery() {
           </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {GALLERY_IMAGES.map((image, index) => (
-            <div key={index} className="relative group overflow-hidden rounded-xl shadow-lg">
+          {displayedImages.map((image, index) => (
+            <div key={index} className="relative overflow-hidden rounded-xl shadow-lg">
               <Image
                 src={image.src}
                 alt={image.alt}
                 width={500}
                 height={500}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 ease-in-out"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-lg font-semibold">{image.label}</p>
-              </div>
             </div>
           ))}
         </div>
+        {!showAll && GALLERY_IMAGES.length > 6 && (
+          <div className="text-center mt-8">
+            <button
+              onClick={() => setShowAll(true)}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300 shadow-lg"
+            >
+              View More
+            </button>
+          </div>
+        )}
+        {showAll && (
+          <div className="text-center mt-8">
+            <button
+              onClick={() => setShowAll(false)}
+              className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300 shadow-lg"
+            >
+              Show Less
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

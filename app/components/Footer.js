@@ -1,7 +1,7 @@
 // components/Footer.js
 
 const CONFIG = {
-    clinicName: "Identity Dental Hospital",
+    clinicName: "",
     phone: "9052877700",
     whatsapp: "9052877700",
     email: "care@identitydental.in", // optional
@@ -41,10 +41,11 @@ export default function Footer() {
                     {/* Brand + NAP */}
                     <div>
                         <div className="flex items-center gap-3">
-                            {/* Replace with next/image logo if available */}
-                            <div className="h-10 w-10 rounded-md bg-teal-600 text-white grid place-content-center font-semibold">
-                                ID
-                            </div>
+                            <img
+                                src="/logo.svg"
+                                alt={CONFIG.clinicName}
+                                className="h-40 w-40 shrink-0"
+                            />
                             <div className="text-lg font-semibold text-slate-900">
                                 {CONFIG.clinicName}
                             </div>

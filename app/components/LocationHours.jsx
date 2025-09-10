@@ -45,15 +45,24 @@ export default function LocationHours() {
                         </div>
                     </div>
                     <div className="h-96 w-full rounded-xl overflow-hidden shadow-lg">
-                        <iframe
-                            title="Clinic Location Map"
-                            src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodeURIComponent(SITE.addressLine1 + ", " + SITE.addressLine2)}`}
-                            className="w-full h-full border-0"
-                            allowFullScreen=""
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                        ></iframe>
-                    </div>
+                        <a 
+                            href="https://www.google.com/maps/place/Identity+dental+hospital/@14.4777074,78.823917,17.57z/data=!4m15!1m8!3m7!1s0x3bb3721b45e1a723:0x16eb88b32c80e7fc!2sIdentity+dental+hospital!8m2!3d14.4774997!4d78.8263749!10e1!16s%2Fg%2F11cn92cclt!3m5!1s0x3bb3721b45e1a723:0x16eb88b32c80e7fc!8m2!3d14.4774997!4d78.8263749!16s%2Fg%2F11cn92cclt?entry=ttu&g_ep=EgoyMDI1MDkwNy4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block w-full h-full relative group cursor-pointer"
+                        >
+                            <img
+                      src="/MapImage/MapImange.png?v=1"
+    alt="Identity Dental Hospital Location Map"
+    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+/>
+<div className="absolute inset-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                                <div className="bg-white bg-opacity-0 px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p className="text-sm font-semibold text-gray-800">Click to open in Google Maps</p>
+                                </div>
+                            </div>
+</a>
+</div>
                 </div>
             </div>
         </section>

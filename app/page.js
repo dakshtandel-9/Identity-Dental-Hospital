@@ -1,4 +1,5 @@
 import AppointmentForm from "./components/AppointmentForm";
+import DoctorSection from "./components/DoctorSection";
 import FAQs from "./components/FAQs";
 import FeaturedDoctor from "./components/FeaturedDoctor";
 import Gallery from "./components/Gallery";
@@ -18,6 +19,7 @@ export default function Home() {
       <Hero />
       <Services />
       <FeaturedDoctor />
+      <DoctorSection />
       <WhyUs />
       <TechnologySafety />
       <Offers />
