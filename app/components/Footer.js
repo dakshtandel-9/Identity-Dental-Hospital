@@ -6,7 +6,7 @@ const CONFIG = {
     whatsapp: "9052877700",
     email: "care@identitydental.in", // optional
     addressLine1: "Kadapa, Andhra Pradesh",
-    addressLine2: "Near (add landmark)",
+    addressLine2: "Identity dental hospital and research center, near ramesh theatre, 12/263-6, Andhra Pradesh 516001",
     mapsUrl: "https://maps.app.goo.gl/JvfVkXKbuWEHB3uS7?g_st=aw",
     hours: {
         weekdays1: "Mon–Sat: 10:00 AM – 2:30 PM",

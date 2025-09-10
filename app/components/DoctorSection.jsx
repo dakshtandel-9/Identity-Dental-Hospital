@@ -1,6 +1,7 @@
 "use client";
 // components/DoctorSection.jsx
 import Image from "next/image";
+import { useRef } from "react";
 
 const doctors = [
     {
@@ -41,6 +42,30 @@ const doctors = [
 ];
 
 export default function DoctorSection() {
+    const scrollContainerRef = useRef(null);
+
+    const scrollLeft = () => {
+        if (scrollContainerRef.current) {
+            const cardWidth = scrollContainerRef.current.children[0]?.offsetWidth || 300;
+            const gap = 24; // 6 * 4px (space-x-6)
+            scrollContainerRef.current.scrollBy({
+                left: -(cardWidth + gap),
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const scrollRight = () => {
+        if (scrollContainerRef.current) {
+            const cardWidth = scrollContainerRef.current.children[0]?.offsetWidth || 300;
+            const gap = 24; // 6 * 4px (space-x-6)
+            scrollContainerRef.current.scrollBy({
+                left: cardWidth + gap,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     return (
         <section id="doctor" className="py-16 bg-white">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -55,25 +80,43 @@ export default function DoctorSection() {
                 </div>
 
                 {/* Doctors Slider */}
-                <div className="relative overflow-hidden">
-                    <style jsx global>{`
-                        @keyframes doctorSlide {
-                            0% {
-                                transform: translateX(0);
+                <div className="relative">
+                    {/* Scroll Buttons */}
+                    <button
+                        onClick={scrollLeft}
+                        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors border border-gray-200"
+                        aria-label="Scroll left"
+                    >
+                        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button
+                        onClick={scrollRight}
+                        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-50 transition-colors border border-gray-200"
+                        aria-label="Scroll right"
+                    >
+                        <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                    
+                    {/* Scrollable Container */}
+                    <div 
+                        ref={scrollContainerRef}
+                        className="flex space-x-6 overflow-x-auto scrollbar-hide px-12"
+                        style={{
+                            scrollbarWidth: 'none',
+                            msOverflowStyle: 'none',
+                            WebkitScrollbar: { display: 'none' }
+                        }}
+                    >
+                        <style jsx>{`
+                            .scrollbar-hide::-webkit-scrollbar {
+                                display: none;
                             }
-                            100% {
-                                transform: translateX(-50%);
-                            }
-                        }
-                        .doctor-slide {
-                            animation: doctorSlide 30s linear infinite;
-                        }
-                        .doctor-slide:hover {
-                            animation-play-state: paused;
-                        }
-                    `}</style>
-                    <div className="flex doctor-slide space-x-6">
-                        {[...doctors, ...doctors].map((doctor, index) => (
+                        `}</style>
+                        {doctors.map((doctor, index) => (
                             <div key={index} className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                                 {/* Doctor Image */}
                                 <div className="relative h-80 w-full">

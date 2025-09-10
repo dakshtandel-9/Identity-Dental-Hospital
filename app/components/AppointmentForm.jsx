@@ -10,9 +10,28 @@ export default function AppointmentForm() {
     async function onSubmit(e) {
         e.preventDefault();
         setLoading(true);
-        // Replace with your API route or service
-        // await fetch("/api/appointment", { method: "POST", body: new FormData(e.currentTarget) });
-        setTimeout(() => { setOk(true); setLoading(false); }, 800);
+        
+        // Get form data
+        const formData = new FormData(e.currentTarget);
+        const name = formData.get('name');
+        const phone = formData.get('phone');
+        const service = formData.get('service');
+        const datetime = formData.get('datetime');
+        const message = formData.get('message');
+        
+        // Create WhatsApp message with appointment details
+        const appointmentMessage = `Hi Identity Dental Hospital,\n\nI would like to book an appointment with the following details:\n\n👤 Name: ${name}\n📱 Phone: ${phone}\n🦷 Service: ${service}\n📅 Preferred Date/Time: ${datetime || 'Not specified'}\n💬 Message: ${message || 'None'}\n\nPlease confirm my appointment. Thank you!`;
+        
+        // Create WhatsApp URL with the appointment details
+        const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(appointmentMessage)}`;
+        
+        // Simulate loading for better UX
+        setTimeout(() => {
+            setLoading(false);
+            // Redirect to WhatsApp
+            window.open(whatsappUrl, '_blank');
+            setOk(true);
+        }, 800);
     }
 
     return (
