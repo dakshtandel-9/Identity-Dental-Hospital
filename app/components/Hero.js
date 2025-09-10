@@ -63,7 +63,7 @@ const CONFIG = {
     tagline: "Your Smile, Our Priority",
     description: "Experience world-class dental care with cutting-edge technology and compassionate service. We're committed to giving you the healthy, beautiful smile you deserve.",
     slides: [
-        { mobile: "", desktop: "/image.png", alt: "Modern dental clinic interior" },
+        { mobile: "/image2.png", desktop: "/image.png", alt: "Modern dental clinic interior" },
     ],
     autoplayMs: 5000,
     statsAutoplayMs: 3000,
@@ -159,7 +159,19 @@ export default function Hero() {
                         }`}
                         aria-hidden={index !== currentSlide}
                     >
-                        {/* Desktop Image Only */}
+                        {/* Mobile Image */}
+                        <div className="relative block md:hidden h-full">
+                            <Image
+                                src={slide.mobile}
+                                alt={slide.alt}
+                                fill
+                                sizes="100vw"
+                                className="object-cover"
+                                priority={index === 0}
+                            />
+                        </div>
+                        
+                        {/* Desktop Image */}
                         <div className="relative hidden md:block h-full">
                             <Image
                                 src={slide.desktop}
@@ -171,8 +183,8 @@ export default function Hero() {
                             />
                         </div>
                         
-                        {/* Gradient Overlay - Desktop Only */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent hidden md:block" />
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
                     </div>
                 ))}
 
