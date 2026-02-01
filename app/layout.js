@@ -80,7 +80,7 @@ export const metadata = {
   },
 
   verification: {
-    google: "google-site-verification-code", // Replace with actual code
+    google: "google83d312d94cd57bba",
   },
   alternates: {
     canonical: "https://identitydental.in",
