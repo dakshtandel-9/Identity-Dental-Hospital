@@ -59,7 +59,7 @@ export default function WhyUs() {
                         Why Choose Identity Dental Hospital?
                     </h2>
                     <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
-                        We combine advanced technology with a patient-first approach to deliver exceptional dental care.
+                        We combine advanced technology with a patient-first approach to deliver the best dental care in Kadapa, Andhra Pradesh.
                     </p>
                 </div>
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

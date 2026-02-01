@@ -60,8 +60,8 @@ function StarIcon({ className = "h-5 w-5" }) {
 /* ---------- Configuration ---------- */
 const CONFIG = {
     clinicName: "Identity Dental Hospital",
-    tagline: "Your Smile, Our Priority",
-    description: "Experience world-class dental care with cutting-edge technology and compassionate service. We're committed to giving you the healthy, beautiful smile you deserve.",
+    tagline: "Your Smile, Our Priority | Best Dental Hospital in Kadapa",
+    description: "Experience world-class dental care at Identity Dental Hospital, rated as the Best Dental Hospital in Kadapa, Andhra Pradesh. Specialized in painless single-visit root canals, implants, and laser dentistry.",
     slides: [
         { mobile: "/image2.png", desktop: "/image.png", alt: "Modern dental clinic interior" },
     ],
@@ -88,7 +88,7 @@ function StatIcon({ name, className = "h-5 w-5" }) {
         award: AwardIcon,
         star: StarIcon,
     };
-    
+
     const IconComponent = iconMap[name] || (() => <span className={className}>•</span>);
     return <IconComponent className={className} />;
 }
@@ -143,7 +143,7 @@ export default function Hero() {
     return (
         <section className="relative overflow-hidden">
             {/* Hero Slider */}
-            <div 
+            <div
                 className="relative h-[500px] md:h-[600px] lg:h-[700px]"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -152,11 +152,10 @@ export default function Hero() {
                 {CONFIG.slides.map((slide, index) => (
                     <div
                         key={index}
-                        className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                            index === currentSlide 
-                                ? "opacity-100 scale-100" 
-                                : "opacity-0 scale-105 pointer-events-none"
-                        }`}
+                        className={`absolute inset-0 transition-all duration-700 ease-in-out ${index === currentSlide
+                            ? "opacity-100 scale-100"
+                            : "opacity-0 scale-105 pointer-events-none"
+                            }`}
                         aria-hidden={index !== currentSlide}
                     >
                         {/* Mobile Image */}
@@ -170,7 +169,7 @@ export default function Hero() {
                                 priority={index === 0}
                             />
                         </div>
-                        
+
                         {/* Desktop Image */}
                         <div className="relative hidden md:block h-full">
                             <Image
@@ -182,7 +181,7 @@ export default function Hero() {
                                 priority={index === 0}
                             />
                         </div>
-                        
+
                         {/* Gradient Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
                     </div>
@@ -201,7 +200,7 @@ export default function Hero() {
                             <p className="text-lg mb-8 text-gray-200 leading-relaxed">
                                 {CONFIG.description}
                             </p>
-                            
+
                             {/* CTA Buttons */}
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a href="#appointment" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-center">
@@ -249,11 +248,10 @@ export default function Hero() {
                                     key={index}
                                     aria-label={`Go to slide ${index + 1}`}
                                     onClick={() => goToSlide(index)}
-                                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                        index === currentSlide
-                                            ? "bg-white scale-125"
-                                            : "bg-white/50 hover:bg-white/75"
-                                    }`}
+                                    className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                                        ? "bg-white scale-125"
+                                        : "bg-white/50 hover:bg-white/75"
+                                        }`}
                                 />
                             ))}
                             <span className="sr-only">{slideAriaLabel}</span>
@@ -266,8 +264,8 @@ export default function Hero() {
             <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border-t border-blue-100">
                 {/* Mobile Stats Carousel */}
                 <div className="md:hidden">
-                    <MobileStatsCarousel 
-                        stats={CONFIG.stats} 
+                    <MobileStatsCarousel
+                        stats={CONFIG.stats}
                         intervalMs={CONFIG.statsAutoplayMs}
                         resumeDelayMs={CONFIG.statsResumeDelayMs}
                     />
@@ -278,8 +276,8 @@ export default function Hero() {
                     <div className="container mx-auto">
                         <div className="grid grid-cols-3 lg:grid-cols-6 gap-6 py-8">
                             {CONFIG.stats.map((stat, index) => (
-                                <div 
-                                    key={index} 
+                                <div
+                                    key={index}
                                     className="text-center group hover:scale-105 transition-transform duration-300"
                                 >
                                     <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md mb-3 ${stat.color} group-hover:shadow-lg transition-shadow`}>
@@ -314,7 +312,7 @@ function MobileStatsCarousel({ stats, intervalMs = 3000, resumeDelayMs = 5000 })
 
         const startAutoScroll = () => {
             if (timerRef.current) clearInterval(timerRef.current);
-            
+
             timerRef.current = setInterval(() => {
                 if (!isPaused) {
                     setCurrentIndex((prev) => {
@@ -333,7 +331,7 @@ function MobileStatsCarousel({ stats, intervalMs = 3000, resumeDelayMs = 5000 })
         const handleInteraction = () => {
             setIsPaused(true);
             if (timerRef.current) clearInterval(timerRef.current);
-            
+
             setTimeout(() => {
                 setIsPaused(false);
                 startAutoScroll();
@@ -359,7 +357,7 @@ function MobileStatsCarousel({ stats, intervalMs = 3000, resumeDelayMs = 5000 })
             {/* Gradient Edges */}
             <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-blue-50 to-transparent pointer-events-none z-10" />
             <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-cyan-50 to-transparent pointer-events-none z-10" />
-            
+
             {/* Scrollable Container */}
             <div
                 ref={containerRef}
