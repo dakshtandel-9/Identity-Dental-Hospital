@@ -85,6 +85,21 @@ export const metadata = {
   alternates: {
     canonical: "https://identitydental.in",
   },
+  icons: {
+    icon: [
+      { url: "/logo.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/logo.svg",
+      },
+    ],
+  },
 };
 
 const jsonLd = {
