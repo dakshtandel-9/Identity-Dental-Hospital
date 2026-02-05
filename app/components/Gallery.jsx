@@ -34,8 +34,10 @@ export default function Gallery() {
               <Image
                 src={image.src}
                 alt={image.alt}
-                width={500}
-                height={500}
+                width={1200}
+                height={1200}
+                quality={95}
+                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 400px"
                 className="w-full h-full object-cover"
               />
             </div>

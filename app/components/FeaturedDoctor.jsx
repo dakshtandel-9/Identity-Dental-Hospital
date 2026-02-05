@@ -8,7 +8,7 @@ export default function FeaturedDoctor() {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
                     <div className="lg:col-span-5">
-                        <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-2xl transform lg:rotate-3 hover:rotate-0 transition-transform duration-500 ease-in-out">
+                        <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-2xl">
                             <Image
                                 src="/DocImage/MadhusudhanReddy.jpeg"
                                 alt="Dr. N. Madhusudhan Reddy"
