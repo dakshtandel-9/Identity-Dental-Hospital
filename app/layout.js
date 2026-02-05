@@ -51,10 +51,10 @@ export const metadata = {
     siteName: "Identity Dental Hospital",
     images: [
       {
-        url: "/og-image.jpg", // Ensure you have an og-image.jpg in public folder or update this
+        url: "/logo.svg",
         width: 1200,
         height: 630,
-        alt: "Identity Dental Hospital Clinic",
+        alt: "Identity Dental Hospital Logo",
       },
     ],
     locale: "en_IN",
@@ -65,7 +65,7 @@ export const metadata = {
     title: "Identity Dental Hospital | Best Dentist in Kadapa",
     description:
       "Painless single-visit root canals, implants, and microscopic dentistry in Kadapa.",
-    images: ["/og-image.jpg"],
+    images: ["/logo.svg"],
   },
   robots: {
     index: true,
@@ -85,11 +85,15 @@ export const metadata = {
   alternates: {
     canonical: "https://identitydental.in",
   },
+  manifest: "/manifest.json",
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/logo.svg", type: "image/svg+xml" },
       { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.png", sizes: "16x16", type: "image/png" },
     ],
+    shortcut: ["/favicon.ico"],
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
@@ -97,6 +101,7 @@ export const metadata = {
       {
         rel: "mask-icon",
         url: "/logo.svg",
+        color: "#1e40af",
       },
     ],
   },
@@ -106,7 +111,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Dentist",
   name: SITE.clinicName,
-  image: "https://identitydental.in/og-image.jpg",
+  image: "https://identitydental.in/logo.svg",
   "@id": "https://identitydental.in",
   url: "https://identitydental.in",
   telephone: SITE.phone,
